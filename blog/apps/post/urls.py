@@ -10,4 +10,5 @@ urlpatterns = [
     path('toppost/', views.GetTopPost, name='toppost'),
     path('readpost/<int:id>', views.ReadPost, name="readpost"),
     path('comentarios/', views.Comentarios, name="comentarios")
+    #path('')
 ]
