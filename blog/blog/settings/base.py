@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'clear_cache',
     'apps.post',
     'apps.usuario',
-    'apps.utils'    
+    'apps.utils',
+    'django_feather'    
 ]
 
 MIDDLEWARE = [
