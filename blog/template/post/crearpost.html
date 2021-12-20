@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}saludar{%endblock %}
+{% block contenido %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+   <head>
+   </head>
+   <body>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+
+
+</body>
+</html>
+
+
+{% endblock %}
