@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.cache import cache
 from django.views import View
 from django.contrib.auth import views as auth
+
 
 
 from .forms import ComentarioForm
@@ -113,6 +116,16 @@ def ExistePost(id):
 			return i
 	return None
 
+
+class CrearPost(CreateView):
+	model = Post
+	template_name = 'post/crearpost.html'
+	fields = ['titulo', 'texto', 'categoria', 'image']
+	success_url = "/usuario/base"
+
+		
+	
+	
 ########################################################################
 #                       views Comentario                               #
 ########################################################################
