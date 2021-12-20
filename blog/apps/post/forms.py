@@ -1,6 +1,6 @@
 from django import forms
+from .models import Comentario, Post
 
-from .models import Comentario
 
 class ComentarioForm(forms.ModelForm):
 
@@ -12,3 +12,5 @@ class ComentarioForm(forms.ModelForm):
         model = Comentario
         fields = ['comentario']
         exclude = ['post']
+
+
