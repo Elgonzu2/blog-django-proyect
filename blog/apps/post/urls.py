@@ -15,5 +15,6 @@ urlpatterns = [
     path('toppost/', views.GetTopPost, name='toppost'),
     path('readpost/<int:id>', views.ReadPost, name="readpost"),
     path('comentarios/', views.Comentarios, name="comentarios"),
-    path('crearpost/', views.CrearPost.as_view(), name="crearpost"),
+    path('crearpost/', views.FormularioPostView.index, name="crearpost"),
+    path('guardarpost/', views.FormularioPostView.guardarPost, name="guardarpost"),
 ]

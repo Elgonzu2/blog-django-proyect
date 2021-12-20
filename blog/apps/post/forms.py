@@ -14,3 +14,8 @@ class ComentarioForm(forms.ModelForm):
         exclude = ['post']
 
 
+class FormularioPost(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = '__all__'
+

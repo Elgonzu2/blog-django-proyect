@@ -9,7 +9,7 @@ class Post(models.Model):
     fecha = models.DateField(auto_now_add=True)
     texto = models.TextField()
     categoria = models.CharField(max_length=40, choices=Categorias, default='Pobreza')
-    image = models.ImageField(upload_to='post', null=True)
+    image = models.ImageField(upload_to='media/post', null=True, default = 'post/no-img.jpg')
 
 class Comentario(models.Model):
     user = models.ForeignKey(User, null=True, on_delete= models.SET_NULL)

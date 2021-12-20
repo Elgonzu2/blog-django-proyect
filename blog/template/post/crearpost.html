@@ -1,22 +1,28 @@
 {% extends 'base.html' %}
-{% block title %}saludar{%endblock %}
+{% load crispy_forms_tags %}
+{% block title %}crear post{%endblock %}
 {% block contenido %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-   <head>
-   </head>
-   <body>
+   {% if form.errors %}
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+      <div class="alert alert-danger" role="alert">
+         A simple danger alert—check it out!
+      </div>
+   {% endif %}
 
+   <h1> Registro de Post </h1>
 
-</body>
-</html>
+   <form action="{% url 'post:guardarpost' %}" method="POST">
+      {% csrf_token %}
+      {% if mensaje %}
+         <div class="alert alert-success" role="alert">
+            Post guardado exitosamente
+         </div>
+      {% endif %}
 
+      {{form|crispy}}
 
+      <button type="submit" class="btn btn-primary">Guardar</button>
+   </form>
 {% endblock %}
