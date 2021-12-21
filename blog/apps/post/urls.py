@@ -20,4 +20,5 @@ urlpatterns = [
     path('ListaMisPost/', views.FormularioPostView.listar_MisPost, name="ListaMisPost"),
     path('PostEdit/<int:id>', views.FormularioPostView.editPost, name="PostEdit"),
     path('actualizarPost/<int:id>', views.FormularioPostView.actualizarPost, name="actualizarPost"),
+    path('eliminarPost/<int:id>', views.FormularioPostView.delete, name="eliminarPost"),
 ]

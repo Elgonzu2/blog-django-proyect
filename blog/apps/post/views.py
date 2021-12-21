@@ -147,6 +147,12 @@ class FormularioPostView(HttpRequest):
 			form.save()
 		post = Post.objects.all()
 		return render(request, "post/ListaMisPost.html", {"post": post})
+
+	def delete(request, id):
+		post = Post.objects.get(pk = id)
+		post.delete()
+		post = Post.objects.all()
+		return render(request, "post/ListaMisPost.html", {"post": post, "mensaje": 'OK'})
 ########################################################################
 #                       views Comentario                               #
 ########################################################################
