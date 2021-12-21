@@ -1,6 +1,6 @@
 from django import forms
+from .models import Comentario, Post
 
-from .models import Comentario
 
 class ComentarioForm(forms.ModelForm):
 
@@ -12,3 +12,10 @@ class ComentarioForm(forms.ModelForm):
         model = Comentario
         fields = ['comentario']
         exclude = ['post']
+
+
+class FormularioPost(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = '__all__'
+

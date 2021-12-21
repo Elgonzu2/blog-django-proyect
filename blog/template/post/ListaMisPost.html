@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Listar mis post{%endblock %}
+{% block contenido %}
+
+	<p></p>
+
+	<h1> Listado de post hechos por admins </h1>
+	
+	<p></p>
+
+	<div class="justify-content-end mb-2 pr-0">
+		<!--<button type="button" class="btn btn-success col-md-2">Agregar Post</button> -->
+		<a class="btn btn-success col-md-2" href="{% url 'post:crearpost' %}">Agregar Post</a>
+	</div>
+
+	<p></p>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Usuario</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Fecha de Creacion</th>
+      	<th scope="col">Editar</th>
+   		<th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for posts in post %}
+    <tr>
+      <th scope="row"> {{ posts.user_id }} </th>
+      <td>{{ posts.titulo }}</td>
+      <td>{{ posts.categoria }}</td>
+      <td>{{ posts.fecha }}</td>
+      <td><a class="btn btn-warning" href="#">Editar</a></td>
+      <td><a class="btn btn-danger" href="#">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

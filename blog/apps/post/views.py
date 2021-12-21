@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.cache import cache
 from django.views import View
 from django.contrib.auth import views as auth
-
-
+from django.http import HttpRequest
+from apps.post.forms import FormularioPost
 from .forms import ComentarioForm
 from .models import Post, Comentario
 # Create your views here.
@@ -113,6 +115,25 @@ def ExistePost(id):
 			return i
 	return None
 
+
+class FormularioPostView(HttpRequest):
+	
+
+	def index(request):
+		post = FormularioPost()
+		return render(request, "post/crearpost.html", {"form":post})
+
+	def guardarPost(request):
+		post = FormularioPost(request.POST)
+		if post.is_valid():
+			post.save()
+			post = FormularioPost()
+
+		return render(request, "post/crearpost.html", {"form":post, "mensaje": 'OK'})
+	
+	def listar_MisPost(request):
+		post = Post.objects.all()#.select_related('user_id')
+		return render(request, "post/ListaMisPost.html", {"post": post})
 ########################################################################
 #                       views Comentario                               #
 ########################################################################
