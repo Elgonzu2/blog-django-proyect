@@ -117,7 +117,6 @@ def ExistePost(id):
 
 
 class FormularioPostView(HttpRequest):
-	
 
 	def index(request):
 		post = FormularioPost()
@@ -126,8 +125,12 @@ class FormularioPostView(HttpRequest):
 	def guardarPost(request):
 		post = FormularioPost(request.POST)
 		if post.is_valid():
-			post.save()
-			post = FormularioPost()
+			aux =  post.save(commit=False)
+			
+			aux.user = request.user
+			aux.save()
+			post = ComentarioForm()
+			
 
 		return render(request, "post/crearpost.html", {"form":post, "mensaje": 'OK'})
 	
