@@ -134,6 +134,19 @@ class FormularioPostView(HttpRequest):
 	def listar_MisPost(request):
 		post = Post.objects.all()#.select_related('user_id')
 		return render(request, "post/ListaMisPost.html", {"post": post})
+
+	def editPost(request, id):
+		post = Post.objects.filter(id = id).first()
+		form = FormularioPost(instance=post)
+		return render (request, "post/PostEdit.html", {"form":form, 'post':post})
+
+	def actualizarPost(request, id):
+		post = Post.objects.get(pk = id)
+		form = FormularioPost(request.POST, instance = post)
+		if form.is_valid():
+			form.save()
+		post = Post.objects.all()
+		return render(request, "post/ListaMisPost.html", {"post": post})
 ########################################################################
 #                       views Comentario                               #
 ########################################################################
