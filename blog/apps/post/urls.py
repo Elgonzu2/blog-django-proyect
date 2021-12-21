@@ -17,4 +17,5 @@ urlpatterns = [
     path('comentarios/', views.Comentarios, name="comentarios"),
     path('crearpost/', views.FormularioPostView.index, name="crearpost"),
     path('guardarpost/', views.FormularioPostView.guardarPost, name="guardarpost"),
+    path('ListaMisPost/', views.FormularioPostView.listar_MisPost, name="ListaMisPost"),
 ]

@@ -32,6 +32,9 @@
                             {% endfor %}
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'post:toppost' %}">Listar Por Fecha</a>
+                    </li>
                 </ul>
                     {% if user.is_authenticated %}
                         <div class="dropdown">
@@ -41,7 +44,7 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 {% if user.is_superuser %}
                                     <li><a class="dropdown-item" href="{% url 'post:crearpost' %}">Crear Post</a></li>
-                                    <li><a class="dropdown-item" href="#">Mis Post</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'post:ListaMisPost' %}">Mis Post</a></li>
                                 {% endif %}
                                 <li><a class="dropdown-item" href="{% url 'usuario:usuario' %}">Ajustes</a></li>
                                 <li><a class="dropdown-item" href="{% url 'usuario:logout' %}">Cerrar Sesión</a></li>

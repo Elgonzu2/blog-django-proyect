@@ -131,6 +131,9 @@ class FormularioPostView(HttpRequest):
 
 		return render(request, "post/crearpost.html", {"form":post, "mensaje": 'OK'})
 	
+	def listar_MisPost(request):
+		post = Post.objects.all()#.select_related('user_id')
+		return render(request, "post/ListaMisPost.html", {"post": post})
 ########################################################################
 #                       views Comentario                               #
 ########################################################################
