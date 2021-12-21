@@ -17,5 +17,5 @@ class ComentarioForm(forms.ModelForm):
 class FormularioPost(forms.ModelForm):
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ['titulo', 'texto', 'categoria', 'image']
 

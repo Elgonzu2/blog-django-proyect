@@ -15,6 +15,11 @@
 
 	<p></p>
 
+   {% if mensaje %}
+         <div class="alert alert-success" role="alert">
+            Post eliminado exitosamente
+         </div>
+      {% endif %}
 
 <table class="table table-striped">
   <thead>
@@ -34,8 +39,8 @@
       <td>{{ posts.titulo }}</td>
       <td>{{ posts.categoria }}</td>
       <td>{{ posts.fecha }}</td>
-      <td><a class="btn btn-warning" href="#">Editar</a></td>
-      <td><a class="btn btn-danger" href="#">Eliminar</a></td>
+      <td><a class="btn btn-warning" href="{% url 'post:PostEdit' posts.id %}">Editar</a></td>
+      <td><a class="btn btn-danger" href="{% url 'post:eliminarPost' posts.id %}">Eliminar</a></td>
     </tr>
     {% endfor %}
   </tbody>
