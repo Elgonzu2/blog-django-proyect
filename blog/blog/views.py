@@ -5,7 +5,7 @@ def Index(request):
     try:
         if request.GET['fecha'] is not None:
             print('estoy en el index')
-            return redirect('post/listarFecha/'+request.GET['fecha'])
+            return redirect('post/postFecha/'+request.GET['fecha'])
     except :
         return render(request, 'Index.html')
 
