@@ -1,29 +1,41 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% block title %}crear post{%endblock %}
+{% block title %}Crear post{%endblock %}
 {% block contenido %}
 {% load static %}
 
    {% if form.errors %}
 
       <div class="alert alert-danger" role="alert">
-         A simple danger alert—check it out!
+         <h1>A simple danger alert—check it out!</h1>
       </div>
    {% endif %}
 
-   <h1> Registro de Post </h1>
+  
 
-   <form action="{% url 'post:guardarpost' %}" method="POST">
-      {% csrf_token %}
-      {% if mensaje %}
-         <div class="alert alert-success" role="alert">
-            Post guardado exitosamente
+<section>
+    <div class="container-fluid">
+    </section> 
+         <div id="row" class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+              <form id="form" action="" method="POST">{%csrf_token%}
+                  <h1> Registro de Post </h1>
+                  <form action="{% url 'post:guardarpost' %}" method="POST">
+                     {% csrf_token %}
+                     {% if mensaje %}
+                        <div class="alert alert-success" role="alert">
+                          <h1> Post guardado exitosamente </h1>
+                        </div>
+                     {% endif %}
+
+                     {{form|crispy}}
+
+                     <button type="submit" class="btn btn-primary">Guardar</button>
+                     <a class="btn btn-warning" href="{% url 'index' %}">Cancelar</a>
+                  </form>
+               </form>
+            </div>
          </div>
-      {% endif %}
 
-      {{form|crispy}}
 
-      <button type="submit" class="btn btn-primary">Guardar</button>
-      <a class="btn btn-warning" href="{% url 'index' %}">Cancelar</a>
-   </form>
 {% endblock %}

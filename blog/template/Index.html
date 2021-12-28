@@ -1,16 +1,57 @@
 
+<!DOCTYPE html>
+<html lang="es">
+
+
+ <!-- Favicons -->
+<link href="static/img/favicon/favicon-16x16.png" rel="icon">
+<link href="static/img/favicon/android-icon-192x192.png" rel="android-touch-icon">
+<link href="static/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+
+
+
 {% extends 'base.html' %}
-{% block title %}Inicio{%endblock %}
+{% block title %}Grupo 7{%endblock %}
 {% block contenido %}
 {% load static %}
+
 
 <!--==========================
     Intro Section
 ============================-->
-<div class="container">
+<div class="container-fluid">
 <main id="main">
+  <!-- ======= Para agregar antes de la primer imagen ======= -->
+        <!--<div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">-->
+
+<!-- ======= Primer imagen ======= -->
+<section id="primer" class="d-flex align-items-center">
+            <div class="row"> 
+                <img src="{% static 'img/1.jpg' %}" width="auto" height="">       
+            </div>
+</section>        
+<!-- Fin primer imagen -->
+
+<!-- ======= Segunda imagen ======= -->
+<section id="segunda" class="d-flex align-items-center">
+            <div class="row"> 
+                <img src="{% static 'img/2.jpg' %}" width="auto" height="">       
+            </div>
+</section>        
+<!-- Fin Segunda imagen -->
+
+<!-- ======= Tercer imagen ======= -->
+<section id="tercer" class="d-flex align-items-center">
+            <div class="row"> 
+                <img src="{% static 'img/3.jpg' %}" width="auto" height="">       
+            </div>
+</section>        
+<!-- Fin Tercer imagen -->
+
 <section id="intro" class="">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+    <!--<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="{% static 'img/17objetivos.png' %}" class="d-block w-100"  height="450">
@@ -27,7 +68,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-      </div>
+      </div>-->
 </section><!-- #intro -->
 </div>
 <!--==========================
@@ -38,3 +79,4 @@
 </section>
 </main>
 {% endblock %}
+</html>
